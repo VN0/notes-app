@@ -52,17 +52,7 @@ const HeaderWrapper = styled.nav`
   position: fixed;
   padding: 20px;
   width: 100%;
-  background: ${props => props.theme.colorBackground};
-
-  ::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -40px;
-    height: 40px;
-    width: 100%;
-    background: linear-gradient(${props => props.theme.colorBackground}, transparent) no-repeat 100% 100%;
-  }
+  z-index: 999;
 `;
 
 const Logo = styled(NavLink)`
@@ -94,17 +84,7 @@ const ButtonWrapper = styled.div`
   bottom: 0;
   padding: 20px;
   width: 100%;
-  background: ${props => props.theme.colorBackground};
-
-  ::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: -40px;
-    height: 40px;
-    width: 100%;
-    background: linear-gradient(transparent, ${props => props.theme.colorBackground}) no-repeat 100% 100%;
-  }
+  z-index: 999;
 `;
 
 const Button = styled.button`
