@@ -104,13 +104,21 @@ const EditorContent = styled.div`
 `;
 
 const TitleInput = styled(Input)`
-  padding-top: 16px;
-  font-size: 32px;
+  * {
+    font-size: 32px;
+  }
+
+  label {
+    top: 16px;
+  }
 `;
 
 const ContentInput = styled(Input)`
-  font-size: 16px;
   opacity: 0.8;
+
+  * {
+    font-size: 16px;
+  }
 `;
 
 const ButtonWrapper = styled.div`
