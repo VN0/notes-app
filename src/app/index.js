@@ -3,6 +3,7 @@ import styled, { createGlobalStyle, ThemeProvider, css } from 'styled-components
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { Transition, TransitionGroup, config as transitionConfig } from 'react-transition-group';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
+import Header from 'components/Header';
 import { theme } from 'app/theme';
 import { useLocalStorage, usePrefersReducedMotion } from 'hooks';
 import { initialState, reducer } from 'app/reducer';
@@ -47,6 +48,7 @@ function App() {
                 </Helmet>
                 <GlobalStyles />
                 <SkipToMain href="#MainContent">Skip to main content</SkipToMain>
+                <Header location={location} />
                 <TransitionGroup
                   component={AppMainContent}
                   tabIndex={-1}
