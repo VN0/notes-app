@@ -51,7 +51,7 @@ const light = {
   colorTitle: base.colorBlack,
   colorText: rgba(base.colorBlack, 0.8),
   colorPrimary: 'rgba(0, 0, 0, 1)',
-  colorAccent: 'rgba(0, 229, 255, 1)',
+  colorAccent: 'rgba(82, 153, 255, 1)',
 };
 
 const dark = {
@@ -64,7 +64,7 @@ const dark = {
   colorTitle: base.colorWhite,
   colorText: base.colorWhite,
   colorPrimary: 'rgba(0, 229, 255, 1)',
-  colorAccent: 'rgba(0, 229, 255, 1)',
+  colorAccent: 'rgba(82, 153, 255, 1)',
 };
 
 export const theme = { light, dark };
