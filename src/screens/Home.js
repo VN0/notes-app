@@ -3,13 +3,17 @@ import styled, { css } from 'styled-components/macro';
 import { Helmet } from 'react-helmet-async';
 import Icon from 'components/Icon';
 import Input from 'components/Input';
-import { useFormInput } from 'hooks';
+import { useFormInput, useDebounce } from 'hooks';
 import { rgba } from 'utils/style';
 
 export default function Home() {
   const [saving, setSaving] = useState();
   const title = useFormInput('');
   const content = useFormInput('');
+  const noteContent = useDebounce({
+    title: title.value,
+    content: content.value,
+  }, 500);
 
   useCallback(async () => {
     if (saving) return;
@@ -23,10 +27,7 @@ export default function Home() {
         headers: {
           'content-type': 'application/json',
         },
-        body: JSON.stringify({
-          title: title.value,
-          content: content.value,
-        }),
+        body: JSON.stringify(noteContent),
       });
 
       if (response.status !== 200) throw new Error('An error occured while saving your note.');
@@ -36,7 +37,7 @@ export default function Home() {
       setSaving(false);
       alert(error.message);
     }
-  }, [title.value, content.value, saving]);
+  }, [noteContent, saving]);
 
   return (
     <React.Fragment>

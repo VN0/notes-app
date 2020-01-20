@@ -1,4 +1,5 @@
 import useAppContext from './useAppContext';
+import useDebounce from './useDebounce';
 import useFormInput from './useFormInput';
 import useId from './useId';
 import useInterval from './useInterval';
@@ -11,6 +12,7 @@ import useWindowSize from './useWindowSize';
 
 export {
   useAppContext,
+  useDebounce,
   useFormInput,
   useId,
   useInterval,
