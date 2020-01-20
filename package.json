@@ -23,7 +23,7 @@
     "styled-components": "^5.0.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "set PORT=80 && react-scripts start",
     "build": "react-scripts build",
     "postbuild": "react-snap",
     "test": "react-scripts test --env=jsdom",
