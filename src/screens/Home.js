@@ -14,9 +14,10 @@ export default function Home() {
     title: title.value,
     content: content.value,
   }, 500);
+  const isEmpty = noteContent.title.length === 0 && noteContent.content.length === 0;
 
   useCallback(async () => {
-    if (saving) return;
+    if (isEmpty || saving) return;
 
     try {
       setSaving(true);
@@ -37,7 +38,7 @@ export default function Home() {
       setSaving(false);
       alert(error.message);
     }
-  }, [noteContent, saving]);
+  }, [noteContent, isEmpty, saving]);
 
   return (
     <React.Fragment>
@@ -68,7 +69,7 @@ export default function Home() {
         </EditorWrapper>
       </EditorScrollFix>
       <ButtonWrapper>
-        <Button wide>Share</Button>
+        <Button wide disabled={isEmpty}>Share</Button>
         <Button>
           <Icon icon="plus" />
         </Button>
@@ -141,7 +142,7 @@ const Button = styled.button`
   border-radius: 30px;
   height: 52px;
   width: 52px;
-  transition: opacity 0.3s;
+  transition: all 0.3s;
 
   ${props => !props.disabled && css`
     background: ${props => props.theme.colorAccent};
