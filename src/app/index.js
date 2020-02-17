@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, useEffect, createContext, useReducer } from 'react';
+import React, { lazy, Fragment, Suspense, useEffect, createContext, useReducer } from 'react';
 import styled, { createGlobalStyle, ThemeProvider, css } from 'styled-components/macro';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { Transition, TransitionGroup, config as transitionConfig } from 'react-transition-group';
@@ -42,7 +42,7 @@ function App() {
         <AppContext.Provider value={{ ...state, dispatch }}>
           <BrowserRouter>
             <Route render={({ location }) => (
-              <React.Fragment>
+              <Fragment>
                 <Helmet>
                   <link rel="canonical" href={`https://notes.codyb.co${location.pathname}`} />
                 </Helmet>
@@ -63,7 +63,7 @@ function App() {
                     {status => (
                       <TransitionContext.Provider value={{ ...state, dispatch, status }}>
                         <AppPage status={status} >
-                          <Suspense fallback={<React.Fragment />}>
+                          <Suspense fallback={Fragment}>
                             <Switch location={location}>
                               <Route component={Home} />
                             </Switch>
@@ -73,7 +73,7 @@ function App() {
                     )}
                   </Transition>
                 </TransitionGroup>
-              </React.Fragment>
+              </Fragment>
             )} />
           </BrowserRouter>
         </AppContext.Provider>

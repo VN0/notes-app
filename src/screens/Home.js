@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, Fragment } from 'react';
 import styled, { css } from 'styled-components/macro';
 import { Helmet } from 'react-helmet-async';
 import Icon from 'components/Icon';
@@ -41,7 +41,7 @@ export default function Home() {
   }, [noteContent, isEmpty, saving]);
 
   return (
-    <React.Fragment>
+    <Fragment>
       <Helmet
         title="Notes App"
         meta={[{
@@ -74,7 +74,7 @@ export default function Home() {
           <Icon icon="plus" />
         </Button>
       </ButtonWrapper>
-    </React.Fragment>
+    </Fragment>
   );
 }
 
